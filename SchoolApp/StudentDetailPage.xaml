@@ -5,9 +5,19 @@
              Title="Student">
 
     <VerticalStackLayout Padding="20" Spacing="10">
-        <Label x:Name="NameLabel" FontSize="28" HorizontalOptions="Center"/>
-        <Label x:Name="DetailsLabel" FontSize="16" HorizontalOptions="Center"/>
-        <Button Text="Back" Clicked="OnBackClicked" HorizontalOptions="Center"/>
+
+        <Label x:Name="NameLabel"
+               FontSize="28"
+               HorizontalOptions="Center"/>
+
+        <Label x:Name="DetailsLabel"
+               FontSize="16"
+               HorizontalOptions="Center"/>
+
+        <Button Text="Back"
+                Clicked="OnBackClicked"
+                HorizontalOptions="Center"/>
+
     </VerticalStackLayout>
 
 </ContentPage>
