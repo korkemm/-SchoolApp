@@ -6,20 +6,32 @@
 
     <VerticalStackLayout Padding="20" Spacing="10">
 
-        <Label Text="Students"
-               FontSize="24" />
+        <Label Text="Students" FontSize="24" />
 
-        <CollectionView x:Name="StudentsList"
-                        SelectionMode="Single"
+        <HorizontalStackLayout Spacing="10">
+            <Entry Text="{Binding NewName}"
+                   Placeholder="New student name"
+                   WidthRequest="220" />
+            <Button Text="Add"
+                    Clicked="OnAddClicked" />
+        </HorizontalStackLayout>
+
+        <CollectionView ItemsSource="{Binding Students}"
                         SelectionChanged="OnStudentSelected">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
+                    <Grid Padding="10" ColumnDefinitions="*,Auto">
 
-                    <Label Text="{Binding .}"
-                           FontSize="18"
-                           Padding="12,8" />
+                        <Label Text="{Binding Name}"
+                               FontSize="18"
+                               Grid.Column="0" />
 
+                        <Label Text="{Binding Gpa, StringFormat='GPA: {0:F2}'}"
+                               FontSize="16"
+                               Grid.Column="1" />
+
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
 
