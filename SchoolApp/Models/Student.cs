@@ -1,7 +1,8 @@
-﻿namespace SchoolApp.Models;
-
-public class Student
+﻿namespace SchoolApp.Models
 {
-    public string Name { get; set; } = "";
-    public double Gpa { get; set; }
+    public class Student
+    {
+        public string Name { get; set; } = "";
+        public double Gpa { get; set; }
+    }
 }

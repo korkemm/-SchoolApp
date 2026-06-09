@@ -1,7 +1,4 @@
-﻿
-
-using SchoolApp.ViewModels;
-namespace SchoolApp;
+﻿namespace SchoolApp;
 
 public partial class MainPage : ContentPage
 {
@@ -10,21 +7,11 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
-        BindingContext = new Person();
     }
 
     private void OnTapClicked(object sender, EventArgs e)
     {
         _count++;
         StatusLabel.Text = $"Button tapped {_count} time(s).";
-    }
-    private async void OnOpenStudentsClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(StudentsPage));
-    }
-    private void OnShoutClicked(object sender, EventArgs e)
-    {
-        if (BindingContext is Person p)
-            p.Name = p.Name.ToUpper();
     }
 }

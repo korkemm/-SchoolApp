@@ -1,31 +1,32 @@
 using SchoolApp.Models;
 using SchoolApp.ViewModels;
 
-namespace SchoolApp;
-
-public partial class StudentsPage : ContentPage
+namespace SchoolApp
 {
-    private readonly StudentsViewModel _vm;
-
-    public StudentsPage()
+    public partial class StudentsPage : ContentPage
     {
-        InitializeComponent();
-        _vm = new StudentsViewModel();
-        BindingContext = _vm;
-    }
+        private readonly StudentsViewModel _vm;
 
-    private void OnAddClicked(object sender, EventArgs e)
-    {
-        _vm.AddStudent();
-    }
+        public StudentsPage()
+        {
+            InitializeComponent();
+            _vm = new StudentsViewModel();
+            BindingContext = _vm;
+        }
 
-    private async void OnStudentSelected(object sender, SelectionChangedEventArgs e)
-    {
-        if (e.CurrentSelection.FirstOrDefault() is not Student student) return;
+        private void OnAddClicked(object sender, EventArgs e)
+        {
+            _vm.AddStudent();
+        }
 
-        await Shell.Current.GoToAsync(
-            $"{nameof(StudentDetailPage)}?name={Uri.EscapeDataString(student.Name)}");
+        private async void OnStudentSelected(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.FirstOrDefault() is not Student student) return;
 
-        StudentsList.SelectedItem = null;
+            await Shell.Current.GoToAsync(
+                $"{nameof(StudentDetailPage)}?name={Uri.EscapeDataString(student.Name)}");
+
+            StudentsList.SelectedItem = null;
+        }
     }
 }
